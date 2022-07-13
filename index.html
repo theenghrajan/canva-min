@@ -15,19 +15,53 @@
 
 <body>
     <div class="site-wrapper">
-        <header class="site-header">
-            <div class="btn-group">
-                <div class="btn-group-item">
+        <header class="site-header navbar">
+            <!-- <ul class="navbar-nav">
+                <li class="nav-item">
                     <a href="#" class="btn btn-secondary">Log in</a>
-                </div>
-                <div class="btn-group">
+                </li>
+                <li class="nav-item">
                     <a href="#" class="btn btn-primary">Sign up</a>
-                </div>
-            </div>
+                </li>
+            </ul> -->
+            <ul class="navbar-nav nav-right">
+                <li class="nav-item">
+                    <div class="avt dropdown">
+                        <img src="https://via.placeholder.com/40x40.jpg/a59090/000000?Text=40x40" alt="User image"
+                            width="40" height="40" loading="lazy">
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-menu-item user-info">
+                                <img src="https://via.placeholder.com/60x60.jpg/a59090/000000?Text=60x60"
+                                    alt="User image" width="64" height="64" loading="lazy">
+                                <div class="user-info-text">
+                                    <strong>User name</strong>
+                                    <span>user@test.com</span>
+                                </div>
+                            </li>
+                            <li class="dropdown-menu-item account-settings">
+                                <a href="#nowhere" class="dropdown-menu-link">Account settings</a>
+                            </li>
+                            <li class="dropdown-menu-item">
+                                <a href="#nowhere" class="dropdown-menu-link">Get the Canva Apps</a>
+                            </li>
+                            <li class="dropdown-menu-item">
+                                <a href="#nowhere" class="dropdown-menu-link">Refer friends</a>
+                            </li>
+
+                            <li class="dropdown-menu-item">
+                                <a href="#nowhere" class="dropdown-menu-link">Privacy policy</a>
+                            </li>
+                            <li class="dropdown-menu-item">
+                                <a href="#nowhere" class="dropdown-menu-link">Sign out</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
         </header> <!-- /.site-header -->
 
         <main class="site-content">
-            <section class="popup">
+            <!-- <section class="popup">
                 <div class="popup-container">
                     <div class="popup-row">
                         <div class="popup-content-block">
@@ -46,38 +80,47 @@
                                 <div class="btn-group-item">
                                     <a href="#" class="btn btn-link">Continue another way</a>
                                 </div>
-                                <span class="legal">By continuing, you agree to Canva's <a href="#">Terms of Use.</a> Read our <a href="#">Privacy Policy.</a></span>
+                                <span class="legal">By continuing, you agree to Canva's <a href="#">Terms of Use.</a>
+                                    Read our <a href="#">Privacy Policy.</a></span>
                                 <a href="#" class="btn btn-link text-left">Sign up with your work email</a>
                             </div>
                         </div>
                         <div class="popup-img-block">
                             <figure class="popup-img-cover">
-                                <img src="assets/image/popup-cover.jpg" alt="Popup Cover" width="" height="" loading="lazy">
+                                <img src="assets/image/popup-cover.jpg" alt="Popup Cover" width="" height=""
+                                    loading="lazy">
                             </figure>
                         </div>
                     </div>
                 </div>
-            </section> <!-- /.popup -->
-
-            <div class="settings">
-                <div class="primary-col">
-                    <div>
-                        <div>
-                            <img src="" alt="" width="" height="" loading="lazy">
-                        </div>
-                        <div>
+            </section>  -->
+            <!-- /.popup -->
+            <aside class="sidebar">
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item user-info">
+                        <img src="https://via.placeholder.com/40x40.jpg/a59090/000000?Text=40x40" alt="User image"
+                            width="40" height="40" loading="lazy">
+                        <div class="user-info-text">
                             <strong>user name</strong>
-                            <p>useremail@email.com</p>
+                            <span>user@test.com</span>
                         </div>
-                    </div> <!-- /.profile-snippet -->
-                    <a href="#" class=""><i class="icon"></i> Your account</a>
-                    <a href="#" class=""><i class="icon"></i> Login & security</a>
-                    <a href="#" class=""><i class="icon"></i> Email preferences</a>
-                </div>
-                <div class="secondary-col">
-                    <h2>Your account</h2>
-                </div>
-            </div>
+                    </li>
+                    <li class="sidebar-nav-item active">
+                        <a href="#" class="sidebar-nav-link"><i class="icon"></i> Your account</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="#" class="sidebar-nav-link"><i class="icon"></i> Login & security</a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="#" class="sidebar-nav-link"><i class="icon"></i> Email preferences</a>
+                    </li>
+                </ul>
+                <hr>
+            </aside> <!-- /.sidebar -->
+
+            <!-- <div class="wrapper">
+                <h2>Your account</h2>
+            </div> -->
         </main> <!-- /.site-content -->
 
         <footer>
