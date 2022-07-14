@@ -51,7 +51,7 @@
         </header> <!-- /.site-header -->
 
         <main class="site-content" style="margin-top: 72px;">
-        <?php /*
+
             <aside class="sidebar">
                 <ul class="sidebar-nav">
                     <li class="sidebar-nav-item user-info">
@@ -72,7 +72,6 @@
                     </li>
                 </ul>
             </aside>
-            */ ?>
             <!-- /.sidebar -->
 
 
