@@ -1,0 +1,12 @@
+#IDE
+/nbproject
+/.idea
+
+*.DS_Store
+
+#NodeModules
+node_modules
+
+#Others
+dist
+.cache
