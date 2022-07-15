@@ -7560,27 +7560,55 @@ input[type="button"].btn-block {
   column-gap: 16px;
 }
 
-.ss-popup {
-  display: inline-block;
+.ss-modal {
   padding: 1rem 3rem;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  overflow: auto;
+  background-color: rgba(30, 41, 51, 0.45);
 }
 
-.ss-popup__container {
+.ss-modal.ss-modal-show {
+  animation: fadeIn 0.1s ease-in-out forwards;
+}
+
+.ss-modal.ss-modal-hide {
+  animation: fadeOut 0.1s ease-in-out 0.1s forwards;
+}
+
+.ss-modal__container {
+  position: relative;
   overflow: hidden;
   border-radius: 8px;
   max-width: 384px;
   margin-left: auto;
   margin-right: auto;
+  overflow: auto;
   box-shadow: rgba(64, 87, 109, 0.07) 0px 0px 0px 1px, rgba(47, 64, 80, 0.25) 0px 2px 18px 0px;
 }
 
 @media (min-width: 992px) {
-  .ss-popup__container {
+  .ss-modal__container {
     max-width: 768px;
   }
 }
 
-.ss-popup__row {
+.ss-modal.ss-modal-show .ss-modal__container {
+  animation: fadeInDown 0.3s ease-in-out forwards;
+}
+
+.ss-modal.ss-modal-hide .ss-modal__container {
+  animation: fadeOutUp 0.2s ease-in-out forwards;
+}
+
+.ss-modal__row {
   display: flex;
   flex-wrap: wrap;
   margin-right: -15px;
@@ -7589,56 +7617,67 @@ input[type="button"].btn-block {
   margin-left: 0;
 }
 
-.ss-popup__content-block, .ss-popup__img-block {
+.ss-modal__content-block, .ss-modal__img-block {
   position: relative;
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
-  flex: 0 0 50%;
-  max-width: 50%;
   padding-right: 0;
   padding-left: 0;
 }
 
-.ss-popup__content-block {
-  padding: 2rem;
+@media (min-width: 992px) {
+  .ss-modal__content-block, .ss-modal__img-block {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
 }
 
-.ss-popup__content-block h2 {
+.ss-modal__content-block {
+  padding: 1rem 1.5rem;
+}
+
+@media (min-width: 992px) {
+  .ss-modal__content-block {
+    padding: 2rem;
+  }
+}
+
+.ss-modal__content-block h2 {
   font-size: 1.5rem;
 }
 
 @media (max-width: 1200px) {
-  .ss-popup__content-block h2 {
+  .ss-modal__content-block h2 {
     font-size: calc(1.275rem + 0.3vw) ;
   }
 }
 
-.ss-popup__content-block .ss-btn-group__item {
+.ss-modal__content-block .ss-btn-group__item {
   margin-bottom: 1rem;
 }
 
-.ss-popup__content-block .ss-legal {
+.ss-modal__content-block .ss-legal {
   display: block;
   font-size: 0.75rem;
   margin-bottom: .5rem;
 }
 
-.ss-popup__content-block .ss-legal a {
+.ss-modal__content-block .ss-legal a {
   color: rgba(13, 18, 22, 0.86);
   text-decoration: underline;
 }
 
-.ss-popup__content-block .ss-legal a:hover, .ss-popup__content-block .ss-legal a:focus {
+.ss-modal__content-block .ss-legal a:hover, .ss-modal__content-block .ss-legal a:focus {
   color: #8b3dff;
 }
 
-.ss-popup__content-block .btn-link {
+.ss-modal__content-block .btn-link {
   padding-left: 0;
 }
 
-.ss-popup__content-block .btn-link [class^="icon-"],
-.ss-popup__content-block .btn-link [class*=" icon-"] {
+.ss-modal__content-block .btn-link [class^="icon-"],
+.ss-modal__content-block .btn-link [class*=" icon-"] {
   display: inline-block;
   vertical-align: middle;
   padding-right: 4px;
@@ -7646,10 +7685,61 @@ input[type="button"].btn-block {
   color: #000;
 }
 
-.ss-popup__img-block img {
+.ss-modal__img-block {
+  height: 100%;
+}
+
+@media (max-width: 991.98px) {
+  .ss-modal__img-block {
+    display: none;
+  }
+}
+
+.ss-modal__img-block img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-3rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOutUp {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-3rem);
+  }
 }
 
 .ss-navbar {
@@ -7669,12 +7759,15 @@ input[type="button"].btn-block {
   display: flex;
   flex-direction: row;
   padding-left: 0;
-  margin-bottom: 0;
-  margin-top: 0;
+  margin: 0 -10px;
 }
 
 .ss-nav-right {
   margin-left: auto;
+}
+
+.ss-nav__item {
+  padding: 0 10px;
 }
 
 .ss-avt {

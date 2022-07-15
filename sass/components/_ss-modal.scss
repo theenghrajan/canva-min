@@ -1,8 +1,28 @@
-.ss-popup {
-    display: inline-block;
+.ss-modal {
+    // display: inline-block;
     padding: 1rem 3rem;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    overflow: auto;
+    background-color: rgba($dark-blue-300, .45);
+
+    &.ss-modal-show {
+        animation: fadeIn 0.1s ease-in-out forwards;
+    }
+
+    &.ss-modal-hide {
+        animation: fadeOut 0.1s ease-in-out 0.1s forwards;
+    }
 
     &__container {
+        position: relative;
         overflow: hidden;
         border-radius: 8px;
         max-width: 384px;
@@ -10,11 +30,20 @@
         // max-width: 95vw;
         margin-left: auto;
         margin-right: auto;
+        overflow: auto;
         box-shadow: rgba($dark-blue-200, 0.07) 0px 0px 0px 1px, rgba($dark-blue-600, 0.25) 0px 2px 18px 0px;
 
         @include media-breakpoint-up(lg) {
             max-width: 768px;
         }
+    }
+
+    &.ss-modal-show .ss-modal__container {
+        animation: fadeInDown 0.3s ease-in-out forwards;
+    }
+
+    &.ss-modal-hide .ss-modal__container {
+        animation: fadeOutUp 0.2s ease-in-out forwards;
     }
 
     &__row {
@@ -26,13 +55,20 @@
     &__content-block,
     &__img-block {
         @include make-col-ready();
-        @include make-col(6);
         padding-right: 0;
         padding-left: 0;
+
+        @include media-breakpoint-up(lg) {
+            @include make-col(6);
+        }
     }
 
     &__content-block {
-        padding: 2rem;
+        padding: 1rem 1.5rem;
+
+        @include media-breakpoint-up(lg) {
+            padding: 2rem;
+        }
 
         h2 {
             @include font-size(1.5rem);
@@ -75,6 +111,12 @@
     }
 
     &__img-block {
+        height: 100%;
+
+        @include media-breakpoint-down(md) {
+            display: none;
+        }
+
         img {
             width: 100%;
             height: 100%;

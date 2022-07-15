@@ -14,21 +14,22 @@
 <body>
 	<div class="ss-site-wrapper">
 		<header class="ss-site-header ss-navbar">
-			<ul class="ss-navbar__nav">
+			<ul class="ss-navbar__nav  ss-nav-right">
 				<li class="ss-nav__item">
-					<a href="#" class="btn btn-secondary">Log in</a>
+					<a data-modal-target="ss-modal" href="#" class="btn btn-secondary">Log in</a>
 				</li>
 				<li class="ss-nav__item">
-					<a href="#" class="btn btn-primary">Sign up</a>
+					<a data-modal-target="ss-modal" href="#" class="btn btn-primary">Sign up</a>
 				</li>
 			</ul>
 		</header> <!-- /.site-header -->
 
 		<main class="ss-site-content">
-			<section class="ss-popup mt-10">
-				<div class="ss-popup__container">
-					<div class="ss-popup__row">
-						<div class="ss-popup__content-block">
+			<section id="ss-modal" class="ss-modal mt-10">
+				<div class="ss-modal__container">
+					<span class="ss-modal__close"><i class="icon-close"></i></span>
+					<div class="ss-modal__row">
+						<div class="ss-modal__content-block">
 							<h2>Log in or sign up in seconds</h2>
 							<p>Use your email or another service to continue with Canva (it's free)!</p>
 							<div class="ss-btn-group">
@@ -49,16 +50,16 @@
 								<a href="#" class="btn btn-link btn-block text-left"><i class="icon-building"></i> Sign up with your work email</a>
 							</div>
 						</div>
-						<div class="ss-popup__img-block">
-							<picture class="ss-popup__img-cover">
-								<source srcset="assets/images/ss-popup-cover.webp" type="image/webp">
-								<source srcset="assets/images/ss-popup-cover.jpg" type="image/jpg">
-								<img src="assets/image/ss-popup-cover.jpg" alt="Popup Cover" width="384" height="592" loading="lazy">
+						<div class="ss-modal__img-block">
+							<picture class="ss-modal__img-cover">
+								<source srcset="assets/images/ss-modal-cover.webp" type="image/webp">
+								<source srcset="assets/images/ss-modal-cover.jpg" type="image/jpg">
+								<img src="assets/image/ss-modal-cover.jpg" alt="Modal Cover" width="384" height="592" loading="lazy">
 							</picture>
 						</div>
 					</div>
 				</div>
-			</section> <!-- /.popup -->
+			</section> <!-- /.modal -->
 		</main> <!-- /.site-content -->
 
 		<footer class="ss-site-footer">
