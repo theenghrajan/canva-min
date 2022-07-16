@@ -28,6 +28,25 @@ function openCloseDropdown(event) {
 	}
 }
 
+
+
+// Continue another way
+const continueAnotherWay = document.getElementById('continueAnotherWay');
+const ssModalContentFirst = document.getElementById('ssModalContentFirst');
+const ssModalContentSecond = document.getElementById('ssModalContentSecond');
+const ssBackModalContent = document.getElementById('ssBackModalContent');
+ssModalContentSecond.style.display = 'none';
+
+continueAnotherWay.addEventListener('click', function () {
+	ssModalContentFirst.style.display ='none';
+	ssModalContentSecond.style.display = 'block';
+});
+
+ssBackModalContent.addEventListener('click', function () {
+	ssModalContentFirst.style.display ='block';
+	ssModalContentSecond.style.display = 'none';
+});
+
 //Modal
 const ssModalTriggerButtons = document.querySelectorAll("[data-modal-target]");
 const ssModals = document.querySelectorAll(".ss-modal");
@@ -36,9 +55,11 @@ const ssModalCloseButtons = document.querySelectorAll(".ss-modal__close");
 ssModalTriggerButtons.forEach(elem => {
 	elem.addEventListener("click", event => toggleModal(event.currentTarget.getAttribute("data-modal-target")));
 });
+
 ssModalCloseButtons.forEach(elem => {
 	elem.addEventListener("click", event => toggleModal(event.currentTarget.closest(".ss-modal").id));
 });
+
 ssModals.forEach(elem => {
 	elem.addEventListener("click", event => {
 		if (event.currentTarget === event.target) toggleModal(event.currentTarget.id);
@@ -55,32 +76,22 @@ document.addEventListener("keydown", event => {
 function toggleModal(modalId) {
 	const ssModal = document.getElementById(modalId);
 
-	if (getComputedStyle(ssModal).display === "flex") {
+	if (getComputedStyle(ssModal).opacity === "1") {
 		ssModal.classList.add("ss-modal-hide");
-		setTimeout(() => {
-			document.body.style.overflow = "initial"; // Optional: in order to enable/disable page scrolling while modal is hidden/shown - in this case: "initial" <=> "visible"
-			ssModal.classList.remove("ss-modal-show", "ss-modal-hide");
-			ssModal.style.display = "none";
-		}, 200);
+		document.body.style.overflow = "initial"; // Optional: in order to enable/disable page scrolling while modal is hidden/shown - in this case: "initial" <=> "visible"
+		ssModal.classList.remove("ss-modal-show", "ss-modal-hide");
+		ssModal.style.opacity = "0";
 	} else {
 		document.body.style.overflow = "hidden"; // Optional: in order to enable/disable page scrolling while modal is hidden/shown
-		ssModal.style.display = "flex";
+		ssModal.style.opacity = "1";
 		ssModal.classList.add("ss-modal-show");
 	}
 }
 
-// Continue another way
-// const ssModalContent = document.getElementById("ssModalContent");
-// const continueAnotherWay = document.getElementById("#continueAnotherWay");
-
-// continueAnotherWay.addEventListener('click', function () {
-// 	if (ssModalContent.children)
-// })
-
-
-
 //sidebar
 const ssHamburger = document.querySelector(".ss-hamburger");
-ssHamburger.addEventListener("click", function () {
-	document.querySelector("body").classList.toggle("active");
-})
+if(ssHamburger) {
+	ssHamburger.addEventListener("click", function () {
+		document.querySelector("body").classList.toggle("active");
+	});
+}

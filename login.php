@@ -26,10 +26,10 @@
                 </li>
                 <li class="ss-navbar__item ss-navbar--right">
                     <div class="ss-avt ss-dropdown">
-                        <img class="ss-dropdown__toggle" data-toggle="ssUserMenu" src="https://via.placeholder.com/40x40.jpg/a59090/000000?Text=40x40" alt="User image" width="40" height="40" loading="lazy">
+                        <img class="ss-dropdown__toggle" data-toggle="ssUserMenu" src="assets/images/user-40x40.png" alt="User image" width="40" height="40" loading="lazy">
                         <ul id="ssUserMenu" class="ss-dropdown__menu">
                             <li class="ss-dropdown__menu-item ss-user-info">
-                                <img src="https://via.placeholder.com/64x64.jpg/a59090/000000?Text=64x64" alt="User image" width="64" height="64" loading="lazy">
+                                <img src="assets/images/user-64x64.png" alt="User image" width="64" height="64" loading="lazy">
                                 <div class="ss-user-info__text">
                                     <strong>User name</strong>
                                     <span>user@test.com</span>
@@ -60,12 +60,12 @@
             </ul>
         </header> <!-- /.site-header -->
 
-        <main class="ss-site-content">
+        <main class="ss-site-content ss-has-sidebar">
 
             <aside class="ss-sidebar">
                 <ul class="ss-sidebar__nav">
                     <li class="ss-sidebar__nav-item ss-user-info">
-                        <img src="https://via.placeholder.com/40x40.jpg/a59090/000000?Text=40x40" alt="User image" width="40" height="40" loading="lazy">
+                        <img src="assets/images/user-40x40.png" alt="User image" width="40" height="40" loading="lazy">
                         <div class="ss-user-info__text">
                             <strong>user name</strong>
                             <span>user@test.com</span>
@@ -83,7 +83,7 @@
                 </ul>
             </aside><!-- /.ss-sidebar -->
 
-            <div class="ss-main">
+            <div class="ss-main-content">
                 <form class="ss-form">
                     <div class="ss-form__header">
                         <h2>Your account</h2>
@@ -91,7 +91,7 @@
                             <div class="ss-user-main">
                                 <figure class="ss-user-main__img">
                                     <figcaption>Profile Photo</figcaption>
-                                    <img src="https://via.placeholder.com/80x80.jpg/a59090/000000?Text=80x80" alt="User image" width="80" height="80" loading="lazy">
+                                    <img src="assets/images/user-80x80.png" alt="User image" width="80" height="80" loading="lazy">
                                 </figure>
                                 <div class="ss-user-main__action">
                                     <button class="btn btn-transparent">Remove photo</button>

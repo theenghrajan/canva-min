@@ -7026,10 +7026,7 @@ mark,
 }
 
 .ss-form__control {
-  border-radius: 4px;
   color: rgba(13, 18, 22, 0.86);
-  height: 47px;
-  padding: 9px 12px 10px;
   display: block;
   width: 100%;
   height: 40px;
@@ -7038,7 +7035,6 @@ mark,
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.2;
-  color: rgba(13, 18, 22, 0.86);
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid rgba(30, 41, 51, 0.45);
@@ -7501,7 +7497,7 @@ fieldset:disabled a.btn {
 
 .btn-sm {
   padding: 0.25rem 0.5rem;
-  font-size: 0.76563rem;
+  font-size: 0.76562rem;
   line-height: 1.5;
   border-radius: 0.2rem;
 }
@@ -7599,13 +7595,15 @@ input[type="button"].btn-block {
   left: 0;
   right: 0;
   bottom: 0;
-  display: none;
+  display: flex;
   justify-content: center;
   align-items: center;
   z-index: 999;
   overflow-y: auto;
   transition: .2s ease-in-out;
   background-color: rgba(30, 41, 51, 0.45);
+  opacity: 0;
+  visibility: hidden;
 }
 
 .ss-modal__inner {
@@ -7614,6 +7612,10 @@ input[type="button"].btn-block {
   padding: 42px 16px 16px;
   display: flex;
   position: relative;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+  will-change: transform;
+  transition: .2s ease-in-out;
 }
 
 @media (min-width: 576px) {
@@ -7624,23 +7626,34 @@ input[type="button"].btn-block {
 
 .ss-modal__container {
   max-width: 384px;
+  height: 592px;
   max-height: 90vh;
-  overflow-y: auto;
   position: relative;
+  overflow-y: auto;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: rgba(64, 87, 109, 0.07) 0px 0px 0px 1px, rgba(47, 64, 80, 0.25) 0px 2px 18px 0px;
 }
 
 @media (min-width: 992px) {
   .ss-modal__container {
     max-width: 768px;
+    min-width: 768px;
   }
 }
 
+.ss-modal.ss-modal-show {
+  visibility: visible;
+}
+
 .ss-modal.ss-modal-show .ss-modal__inner {
-  animation: zoomIn 0.3s ease-in-out forwards;
+  -webkit-transform: scale(1);
+  transform: scale(1);
 }
 
 .ss-modal.ss-modal-hide .ss-modal__inner {
-  animation: zoomOut 0.3s ease-in-out forwards;
+  -webkit-transform: scale(1);
+  transform: scale(1);
 }
 
 .ss-modal__close {
@@ -7673,10 +7686,6 @@ input[type="button"].btn-block {
   margin-left: -15px;
   margin-right: 0;
   margin-left: 0;
-  border-radius: 8px;
-  overflow: hidden;
-  background-color: #fff;
-  box-shadow: rgba(64, 87, 109, 0.07) 0px 0px 0px 1px, rgba(47, 64, 80, 0.25) 0px 2px 18px 0px;
 }
 
 .ss-modal__content-block, .ss-modal__img-block {
@@ -7703,14 +7712,6 @@ input[type="button"].btn-block {
   .ss-modal__content-block {
     padding: 2rem;
   }
-}
-
-.ss-modal__content-block .ss-inner {
-  display: none;
-}
-
-.ss-modal__content-block .ss-inner.active {
-  display: block;
 }
 
 .ss-modal__content-block h2 {
@@ -7769,31 +7770,6 @@ input[type="button"].btn-block {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-/* Animations */
-@keyframes zoomIn {
-  0% {
-    -webkit-transform: scale(0.8);
-    transform: scale(0.8);
-    will-change: transform;
-  }
-  100% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-  }
-}
-
-@keyframes zoomOut {
-  0% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-    will-change: transform;
-  }
-  100% {
-    -webkit-transform: scale(0.8);
-    transform: scale(0.8);
-  }
 }
 
 .ss-navbar {
@@ -8002,13 +7978,13 @@ body.active .ss-sidebar {
 }
 
 @media (min-width: 992px) {
-  body.active .ss-main {
+  body.active .ss-has-sidebar .ss-main-content {
     margin-left: 0;
     width: 100%;
   }
 }
 
-.ss-main {
+.ss-has-sidebar .ss-main-content {
   display: block;
   padding-top: 4.5rem;
   padding-left: 2rem;
@@ -8017,7 +7993,7 @@ body.active .ss-sidebar {
 }
 
 @media (min-width: 992px) {
-  .ss-main {
+  .ss-has-sidebar .ss-main-content {
     width: calc(100% - 260px);
     margin-left: 260px;
   }

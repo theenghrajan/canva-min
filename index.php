@@ -16,10 +16,10 @@
 		<header class="ss-site-header ss-navbar">
 			<ul class="ss-navbar__nav ss-navbar--right">
 				<li class="ss-navbar__item">
-					<a data-modal-target="ss-modal" href="javascript:void(0)" class="btn btn-secondary">Log in</a>
+					<button type="button" data-modal-target="ss-modal" class="btn btn-secondary">Log in</button>
 				</li>
 				<li class="ss-navbar__item">
-					<a data-modal-target="ss-modal" href="javascript:void(0)" class="btn btn-primary">Sign up</a>
+					<button type="button" data-modal-target="ss-modal" class="btn btn-primary">Sign up</button>
 				</li>
 			</ul>
 		</header> <!-- /.site-header -->
@@ -33,7 +33,7 @@
 					<div class="ss-modal__container">
 						<div class="ss-modal__row">
 							<div id="ssModalContent" class="ss-modal__content-block">
-								<div class="ss-inner active">
+								<div class="ss-inner" id="ssModalContentFirst">
 									<h2>Log in or sign up in seconds</h2>
 									<p>Use your email or another service to continue with Canva (it's free)!</p>
 									<div class="ss-btn-group">
@@ -47,14 +47,14 @@
 											<a href="#" class="btn btn-primary btn-block">Continue with email</a>
 										</div>
 										<div class="ss-btn-group__item">
-											<a href="#" id="continueAnotherway" class="btn btn-transparent btn-block">Continue another way</a>
+											<button type="button" id="continueAnotherWay" targetShow="ssModalContentSecond" class="btn btn-transparent btn-block">Continue another way</button>
 										</div>
 										<span class="ss-legal">By continuing, you agree to Canva's <a href="#">Terms of Use.</a>
 											Read our <a href="#">Privacy Policy.</a></span>
-										<a href="#" class="btn btn-link btn-block text-left"><i class="icon-building"></i> Sign up with your work email</a>
+										<a href="#" class="btn btn-link btn-block text-left"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 18.5a.5.5 0 0 1-.5-.5V5a.5.5 0 0 1 .5-.5h6.5c.275 0 .5.225.5.5v13.5H4Zm8.5 1.497V20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6.5c1.102 0 2 .895 2 2v3.997h2L20 9c1.105 0 2 .892 2 2v7l-1.5-.001V11c0-.278-.222-.5-.5-.5l-3.126-.001-4.374-.002v8l7.5.003a.5.5 0 0 0 .5-.5H22a2 2 0 0 1-2 2l-7.5-.003ZM5 7.497h4.5v-1.5H5v1.5Zm0 3h4.5v-1.5H5v1.5Zm4.5 3H5v-1.5h4.5v1.5Zm-4.5 3h4.5v-1.5H5v1.5Zm11-3h-2v-1.5h2v1.5Zm0 3h-2v-1.5h2v1.5Zm3-3h-2v-1.5h2v1.5Zm0 3h-2v-1.5h2v1.5Z" fill="currentColor"></path></svg> Sign up with your work email</a>
 									</div>
 								</div>
-								<div class="ss-inner">
+								<div class="ss-inner" id="ssModalContentSecond">
 									<div class="ss-btn-group">
 										<div class="ss-btn-group__item">
 											<a href="#" class="btn btn-secondary btn-block btn-icon btn-icon-apple">Continue with apple</a>
@@ -77,6 +77,9 @@
 										<div class="ss-btn-group__item">
 											<a href="#" class="btn btn-secondary btn-block">Log in with mobile</a>
 										</div>
+										<div class="ss-btn-group__item">
+											<button id="ssBackModalContent" class="btn btn-secondary btn-block" targetShow="ssModalContentFirst">Back</button>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -92,7 +95,7 @@
 				</div>
 			</section> <!-- /.modal -->
 
-			<div class="ss-main">
+			<div class="ss-main-content">
 				<div class="container">
 					<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit saepe optio tempora sapiente aliquam. Nobis odio voluptatibus ea explicabo illo iste facere dolores id est, ad quam nostrum minima fuga! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit rem, possimus praesentium quo id sit odit aspernatur commodi, numquam quasi porro, repellendus exercitationem. Voluptatum et ipsam illo placeat corrupti quis!</p>
 					<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit saepe optio tempora sapiente aliquam. Nobis odio voluptatibus ea explicabo illo iste facere dolores id est, ad quam nostrum minima fuga! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit rem, possimus praesentium quo id sit odit aspernatur commodi, numquam quasi porro, repellendus exercitationem. Voluptatum et ipsam illo placeat corrupti quis!</p>

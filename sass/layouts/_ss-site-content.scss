@@ -1,23 +1,26 @@
 body.active {
-    .ss-main {
-
-        @include media-breakpoint-up(lg) {
-            margin-left: 0;
-            width: 100%;
+    .ss-has-sidebar {
+        .ss-main-content {
+            @include media-breakpoint-up(lg) {
+                margin-left: 0;
+                width: 100%;
+            }
         }
     }
 }
 
-.ss-main {
-    display: block;
-    padding-top: 4.5rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    transition: all 0.5s ease;
+.ss-has-sidebar {
+    .ss-main-content {
+        display: block;
+        padding-top: 4.5rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        transition: all 0.5s ease;
 
-    @include media-breakpoint-up(lg) {
-        width: calc(100% - 260px);
-        margin-left: 260px;
+        @include media-breakpoint-up(lg) {
+            width: calc(100% - 260px);
+            margin-left: 260px;
+        }
     }
 }
 

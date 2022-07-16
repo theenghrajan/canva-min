@@ -4,21 +4,15 @@
     left: 0;
     right: 0;
     bottom: 0;
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
     z-index: 999;
     overflow-y: auto;
     transition: .2s ease-in-out;
     background-color: rgba($dark-blue-300, .45);
-
-    // &.ss-modal-show {
-    //     animation: zoomIn 0.1s ease-in-out forwards;
-    // }
-
-    // &.ss-modal-hide {
-    //     animation: zoomOut 0.1s ease-in-out 0.1s forwards;
-    // }
+    opacity: 0;
+    visibility: hidden;
 
     &__inner {
         margin: auto 0;
@@ -26,6 +20,10 @@
         padding: 42px 16px 16px;
         display: flex;
         position: relative;
+        -webkit-transform: scale(0);
+        transform: scale(0);
+        will-change: transform;
+        transition: .2s ease-in-out;
 
         @include media-breakpoint-up(sm) {
             padding: 42px 48px 16px;
@@ -34,21 +32,34 @@
 
     &__container {
         max-width: 384px;
+        height: 592px;
         max-height: 90vh;
-        overflow-y: auto;
         position: relative;
+        overflow-y: auto;
+        border-radius: 8px;
+        background-color: $white;
+        box-shadow: rgba($dark-blue-200, 0.07) 0px 0px 0px 1px, rgba($dark-blue-600, 0.25) 0px 2px 18px 0px;
 
         @include media-breakpoint-up(lg) {
             max-width: 768px;
+            min-width: 768px;
         }
     }
 
-    &.ss-modal-show .ss-modal__inner {
-        animation: zoomIn 0.3s ease-in-out forwards;
+    &.ss-modal-show {
+        visibility: visible;
+
+        .ss-modal__inner {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
     }
 
-    &.ss-modal-hide .ss-modal__inner {
-        animation: zoomOut 0.3s ease-in-out forwards;
+    &.ss-modal-hide {
+        .ss-modal__inner {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
     }
 
     &__close {
@@ -76,10 +87,6 @@
         @include make-row();
         margin-right: 0;
         margin-left: 0;
-        border-radius: 8px;
-        overflow: hidden;
-        background-color: $white;
-        box-shadow: rgba($dark-blue-200, 0.07) 0px 0px 0px 1px, rgba($dark-blue-600, 0.25) 0px 2px 18px 0px;
     }
 
     &__content-block,
@@ -100,13 +107,13 @@
             padding: 2rem;
         }
 
-        .ss-inner {
-            display: none;
+        // .ss-inner {
+        //     display: none;
 
-            &.active {
-                display: block;
-            }
-        }
+        //     &.active {
+        //         display: block;
+        //     }
+        // }
 
         h2 {
             @include font-size(1.5rem);
