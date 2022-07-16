@@ -1,55 +1,85 @@
 .ss-modal {
-    // display: inline-block;
-    padding: 1rem 3rem;
     position: fixed;
-    left: 0;
     top: 0;
-    width: 100%;
-    height: 100%;
+    left: 0;
+    right: 0;
+    bottom: 0;
     display: none;
     justify-content: center;
     align-items: center;
     z-index: 999;
-    overflow: auto;
+    overflow-y: auto;
+    transition: .2s ease-in-out;
     background-color: rgba($dark-blue-300, .45);
 
-    &.ss-modal-show {
-        animation: fadeIn 0.1s ease-in-out forwards;
-    }
+    // &.ss-modal-show {
+    //     animation: zoomIn 0.1s ease-in-out forwards;
+    // }
 
-    &.ss-modal-hide {
-        animation: fadeOut 0.1s ease-in-out 0.1s forwards;
+    // &.ss-modal-hide {
+    //     animation: zoomOut 0.1s ease-in-out 0.1s forwards;
+    // }
+
+    &__inner {
+        margin: auto 0;
+        max-width: 100%;
+        padding: 42px 16px 16px;
+        display: flex;
+        position: relative;
+
+        @include media-breakpoint-up(sm) {
+            padding: 42px 48px 16px;
+        }
     }
 
     &__container {
-        position: relative;
-        overflow: hidden;
-        border-radius: 8px;
         max-width: 384px;
-        // max-height: 90vh;
-        // max-width: 95vw;
-        margin-left: auto;
-        margin-right: auto;
-        overflow: auto;
-        box-shadow: rgba($dark-blue-200, 0.07) 0px 0px 0px 1px, rgba($dark-blue-600, 0.25) 0px 2px 18px 0px;
+        max-height: 90vh;
+        overflow-y: auto;
+        position: relative;
 
         @include media-breakpoint-up(lg) {
             max-width: 768px;
         }
     }
 
-    &.ss-modal-show .ss-modal__container {
-        animation: fadeInDown 0.3s ease-in-out forwards;
+    &.ss-modal-show .ss-modal__inner {
+        animation: zoomIn 0.3s ease-in-out forwards;
     }
 
-    &.ss-modal-hide .ss-modal__container {
-        animation: fadeOutUp 0.2s ease-in-out forwards;
+    &.ss-modal-hide .ss-modal__inner {
+        animation: zoomOut 0.3s ease-in-out forwards;
+    }
+
+    &__close {
+        position: absolute;
+        top: 6px;
+        right: 16px;
+        color: $white;
+        cursor: pointer;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background-color: rgba($dark-blue-300, .6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include font-size(0.625rem);
+
+        @include media-breakpoint-up(sm) {
+            top: 42px;
+            right: 8px;
+        }
     }
 
     &__row {
         @include make-row();
         margin-right: 0;
         margin-left: 0;
+        border-radius: 8px;
+        overflow: hidden;
+        background-color: $white;
+        box-shadow: rgba($dark-blue-200, 0.07) 0px 0px 0px 1px, rgba($dark-blue-600, 0.25) 0px 2px 18px 0px;
     }
 
     &__content-block,
@@ -68,6 +98,14 @@
 
         @include media-breakpoint-up(lg) {
             padding: 2rem;
+        }
+
+        .ss-inner {
+            display: none;
+
+            &.active {
+                display: block;
+            }
         }
 
         h2 {

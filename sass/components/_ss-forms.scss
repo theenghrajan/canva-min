@@ -1,4 +1,5 @@
 .ss-form {
+	padding-top: 1rem;
 	max-width: 750px;
 
 	&__header,
@@ -23,15 +24,37 @@
 	&__section {
 		padding-bottom: 1rem;
 		display: flex;
-		flex-direction: row;
+		flex-direction: column;
 		width: 100%;
-		align-items: flex-end;
+
+		@include media-breakpoint-up(sm) {
+			flex-direction: row;
+			align-items: flex-end;
+		}
+
+		.ss-form__control:not(select.ss-form__control) {
+			display: none;
+		}
+
+		&.active {
+			.ss-form__control:not(select.ss-form__control) {
+				display: block;
+			}
+
+			p {
+				display: none;
+			}
+		}
 	}
 
 	&__group {
 		flex-grow: 1;
 		width: 100%;
 		margin-right: 8px;
+
+		@include media-breakpoint-down(xs) {
+			margin-bottom: 12px;
+		}
 	}
 
 	&__label {
@@ -52,7 +75,7 @@
 
 	&__control {
 		border-radius: 4px;
-		color: var(--clr-neutral-900);
+		color: $input-color;
 		height: 47px;
 		padding: 9px 12px 10px;
 
@@ -113,7 +136,7 @@
 }
 
 select.ss-form__control {
-	width: 50%;
+	width: 100%;
 	background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAHCAYAAAA8sqwkAAAABHNCSVQICAgIfAhkiAAAAHJJREFUGFdjbG9vv8DAwHC+srIyEUhjBW1tbQuAEvpVVVWGjCAOIyNjPFBgATZNSPIXgfIGjCAjcWlCVvzz50+HhoaGD2AN2DRhUwxSB9eApukBkK8AxBdhJsMMRtGApglDMYYNSM4r+PXr1wKQm9GDDQB5zUoIg+QsGQAAAABJRU5ErkJggg==');
 	appearance: none;
 	-ms-appearance: none;
@@ -123,6 +146,10 @@ select.ss-form__control {
 	background-repeat: no-repeat;
 	background-size: 11px;
 	padding-right: 2rem;
+
+	@include media-breakpoint-up(lg) {
+		width: 50%;
+	}
 
 	&:focus::-ms-value {
 		// Suppress the nested default white text on blue background highlight given to

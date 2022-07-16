@@ -1,44 +1,26 @@
 /* Animations */
-@keyframes fadeIn {
+@keyframes zoomIn {
     0% {
-        opacity: 0;
+        -webkit-transform: scale(.8);
+        transform: scale(.8);
+        will-change: transform;
     }
 
     100% {
-        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1);
     }
 }
 
-@keyframes fadeOut {
+@keyframes zoomOut {
     0% {
-        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        will-change: transform;
     }
 
     100% {
-        opacity: 0;
-    }
-}
-
-@keyframes fadeInDown {
-    0% {
-        opacity: 0;
-        transform: translateY(-3rem);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeOutUp {
-    0% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    100% {
-        opacity: 0;
-        transform: translateY(-3rem);
+        -webkit-transform: scale(.8);
+        transform: scale(.8);
     }
 }

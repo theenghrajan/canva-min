@@ -1,13 +1,33 @@
+body.active {
+    .ss-sidebar {
+        left: 0;
+
+        @include media-breakpoint-up(lg) {
+            left: -260px;
+        }
+    }
+}
+
 .ss-sidebar {
     width: 260px;
-    height: 100vh;
-    /* position: fixed; */
-    /* margin-top: 65px; */
+    height: 100%;
+    position: fixed;
+    top: 72px;
+    left: -260px;
     padding-top: 8px;
     padding-left: 16px;
     overflow: hidden;
     z-index: 9;
-    transition: width .5s ease-in-out;
+    background-color: $white;
+    transition: all 0.5s ease;
+
+    @include media-breakpoint-up(lg) {
+        left: 0;
+    }
+
+    @include media-breakpoint-down(md) {
+        box-shadow: 0 2px 4px -1px rgba($dark-blue-100, .15);
+    }
 
     &__nav {
         list-style: none;
@@ -67,6 +87,10 @@
                 color: $body-color;
                 text-decoration: none;
                 background-color: rgba($dark-blue-200, .07)
+            }
+
+            svg {
+                margin-right: 12px;
             }
 
             [class^="icon-"],

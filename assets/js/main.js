@@ -29,17 +29,17 @@ function openCloseDropdown(event) {
 }
 
 //Modal
-const modalTriggerButtons = document.querySelectorAll("[data-modal-target]");
-const modals = document.querySelectorAll(".ss-modal");
-const modalCloseButtons = document.querySelectorAll(".ss-modal__close");
+const ssModalTriggerButtons = document.querySelectorAll("[data-modal-target]");
+const ssModals = document.querySelectorAll(".ss-modal");
+const ssModalCloseButtons = document.querySelectorAll(".ss-modal__close");
 
-modalTriggerButtons.forEach(elem => {
+ssModalTriggerButtons.forEach(elem => {
 	elem.addEventListener("click", event => toggleModal(event.currentTarget.getAttribute("data-modal-target")));
 });
-modalCloseButtons.forEach(elem => {
+ssModalCloseButtons.forEach(elem => {
 	elem.addEventListener("click", event => toggleModal(event.currentTarget.closest(".ss-modal").id));
 });
-modals.forEach(elem => {
+ssModals.forEach(elem => {
 	elem.addEventListener("click", event => {
 		if (event.currentTarget === event.target) toggleModal(event.currentTarget.id);
 	});
@@ -53,18 +53,34 @@ document.addEventListener("keydown", event => {
 });
 
 function toggleModal(modalId) {
-	const modal = document.getElementById(modalId);
+	const ssModal = document.getElementById(modalId);
 
-	if (getComputedStyle(modal).display === "flex") { // alternatively: if(modal.classList.contains("modal-show"))
-		modal.classList.add("ss-modal-hide");
+	if (getComputedStyle(ssModal).display === "flex") {
+		ssModal.classList.add("ss-modal-hide");
 		setTimeout(() => {
 			document.body.style.overflow = "initial"; // Optional: in order to enable/disable page scrolling while modal is hidden/shown - in this case: "initial" <=> "visible"
-			modal.classList.remove("ss-modal-show", "ss-modal-hide");
-			modal.style.display = "none";
+			ssModal.classList.remove("ss-modal-show", "ss-modal-hide");
+			ssModal.style.display = "none";
 		}, 200);
 	} else {
 		document.body.style.overflow = "hidden"; // Optional: in order to enable/disable page scrolling while modal is hidden/shown
-		modal.style.display = "flex";
-		modal.classList.add("ss-modal-show");
+		ssModal.style.display = "flex";
+		ssModal.classList.add("ss-modal-show");
 	}
 }
+
+// Continue another way
+// const ssModalContent = document.getElementById("ssModalContent");
+// const continueAnotherWay = document.getElementById("#continueAnotherWay");
+
+// continueAnotherWay.addEventListener('click', function () {
+// 	if (ssModalContent.children)
+// })
+
+
+
+//sidebar
+const ssHamburger = document.querySelector(".ss-hamburger");
+ssHamburger.addEventListener("click", function () {
+	document.querySelector("body").classList.toggle("active");
+})

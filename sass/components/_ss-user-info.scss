@@ -1,3 +1,13 @@
+.ss-avt {
+    cursor: pointer;
+
+    img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
+}
+
 .ss-user-info {
     display: flex;
     align-items: center;
@@ -27,8 +37,13 @@
 
 .ss-user-main {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+
+    @include media-breakpoint-up(sm) {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
 
     &__img {
         img {

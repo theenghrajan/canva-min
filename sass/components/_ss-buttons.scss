@@ -5,6 +5,7 @@
 //
 
 .btn {
+	white-space: nowrap;
 	min-width: 80px;
 	display: inline-block;
 	font-family: $btn-font-family;
@@ -17,6 +18,7 @@
 	border: $btn-border-width solid transparent;
 	@include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-line-height, $btn-border-radius);
 	@include transition($btn-transition);
+	position: relative;
 
 	@include hover {
 		color: $body-color;
@@ -66,6 +68,13 @@
 			border-color: rgba($dark-blue-100, .15);
 			background-color: rgba($dark-blue-100, .15);
 		}
+
+		&:not(:disabled):not(.disabled):active,
+		&:not(:disabled):not(.disabled).active {
+			color: $body-color;
+			background-color: rgba($dark-blue-500, .2);
+			border-color: rgba($dark-blue-500, .2);
+		}
 	}
 
 	&.btn-transparent {
@@ -83,6 +92,34 @@
 		&:focus {
 			opacity: .8;
 		}
+	}
+
+	&.btn-icon {
+		background-position: calc(0% + 6px) 50%;
+		background-repeat: no-repeat;
+		background-size: 18px;
+		padding-left: 2.25rem;
+		padding-right: 2.25rem;
+	}
+
+	&.btn-icon-google {
+		background-image: url('#{$site-image-path}/google-icon.png');
+	}
+
+	&.btn-icon-facebook {
+		background-image: url('#{$site-image-path}/facebook-icon.png');
+	}
+
+	&.btn-icon-microsoft {
+		background-image: url('#{$site-image-path}/microsoft-icon.png');
+	}
+
+	&.btn-icon-clever {
+		background-image: url('#{$site-image-path}/clever-icon.png');
+	}
+
+	&.btn-icon-apple {
+		background-image: url('#{$site-image-path}/apple-icon.png');
 	}
 }
 

@@ -1,10 +1,28 @@
-// .ss-site-content {
-//     display: flex;
-// }
+body.active {
+    .ss-main {
+
+        @include media-breakpoint-up(lg) {
+            margin-left: 0;
+            width: 100%;
+        }
+    }
+}
 
 .ss-main {
     display: block;
-    width: 100%;
-    padding-top: 1rem;
+    padding-top: 4.5rem;
     padding-left: 2rem;
+    padding-right: 2rem;
+    transition: all 0.5s ease;
+
+    @include media-breakpoint-up(lg) {
+        width: calc(100% - 260px);
+        margin-left: 260px;
+    }
+}
+
+.ss-mobile {
+    @include media-breakpoint-up(lg) {
+        display: none;
+    }
 }

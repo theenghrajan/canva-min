@@ -1,15 +1,15 @@
-@import 'utils/_ss-functions';
-@import 'utils/_ss-mixins';
-@import 'utils/_ss-variables';
-@import 'utils/_ss-spacing';
-@import 'utils/_ss-helpers';
+@import 'utils/ss-functions';
+@import 'utils/ss-mixins';
+@import 'utils/ss-variables';
+@import 'utils/ss-spacing';
+@import 'utils/ss-helpers';
 
-@import 'vendors/_ss-fonts';
+@import 'vendors/ss-fonts';
 
-@import 'base/_ss-root';
-@import 'base/_ss-reset';
-@import 'base/_ss-type';
-@import 'base/_ss-grid';
+@import 'base/ss-root';
+@import 'base/ss-reset';
+@import 'base/ss-type';
+@import 'base/ss-grid';
 
 @import "components/ss-transitions";
 @import "components/ss-forms";
@@ -18,8 +18,8 @@
 @import "components/ss-modal";
 @import "components/ss-animation";
 
-@import 'layouts/_ss-site-header';
+@import 'layouts/ss-site-header';
 @import 'layouts/ss-site-sidebar';
-@import 'layouts/_ss-site-content';
+@import 'layouts/ss-site-content';
 // Place the addtitional partial scss files for layouts here
-@import 'layouts/_ss-site-footer';
+@import 'layouts/ss-site-footer';
