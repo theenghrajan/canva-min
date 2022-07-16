@@ -35,17 +35,22 @@ const continueAnotherWay = document.getElementById('continueAnotherWay');
 const ssModalContentFirst = document.getElementById('ssModalContentFirst');
 const ssModalContentSecond = document.getElementById('ssModalContentSecond');
 const ssBackModalContent = document.getElementById('ssBackModalContent');
-ssModalContentSecond.style.display = 'none';
 
-continueAnotherWay.addEventListener('click', function () {
-	ssModalContentFirst.style.display ='none';
-	ssModalContentSecond.style.display = 'block';
-});
-
-ssBackModalContent.addEventListener('click', function () {
-	ssModalContentFirst.style.display ='block';
+if (ssModalContentFirst || ssModalContentSecond) {
 	ssModalContentSecond.style.display = 'none';
-});
+
+	continueAnotherWay.addEventListener('click', function () {
+		ssModalContentFirst.style.display = 'none';
+		ssModalContentSecond.style.display = 'block';
+	});
+
+	ssBackModalContent.addEventListener('click', function () {
+		ssModalContentFirst.style.display = 'block';
+		ssModalContentSecond.style.display = 'none';
+	});
+}
+
+
 
 //Modal
 const ssModalTriggerButtons = document.querySelectorAll("[data-modal-target]");
@@ -90,8 +95,35 @@ function toggleModal(modalId) {
 
 //sidebar
 const ssHamburger = document.querySelector(".ss-hamburger");
-if(ssHamburger) {
+if (ssHamburger) {
 	ssHamburger.addEventListener("click", function () {
 		document.querySelector("body").classList.toggle("active");
 	});
+}
+
+// tabs
+var ssTabLinks = document.querySelectorAll(".ss-tab-links");
+var ssTabContent = document.querySelectorAll(".ss-tab-content");
+
+
+ssTabLinks.forEach(function(el) {
+   el.addEventListener("click", openTabs);
+});
+
+
+function openTabs(el) {
+   var btnTarget = el.currentTarget;
+   var tab = btnTarget.dataset.tab;
+
+   ssTabContent.forEach(function(el) {
+      el.classList.remove("active");
+   });
+
+   ssTabLinks.forEach(function(el) {
+      el.classList.remove("active");
+   });
+
+   document.querySelector("#" + tab).classList.add("active");
+   
+   btnTarget.classList.add("active");
 }

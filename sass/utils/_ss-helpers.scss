@@ -589,3 +589,12 @@ a[href*="mailto:"] {
 .w-100 {
 	width: 100%;
 }
+
+.Show {
+	opacity: 1;
+}
+
+.hide {
+	opacity: 0;
+	transition: opacity 400ms;
+}

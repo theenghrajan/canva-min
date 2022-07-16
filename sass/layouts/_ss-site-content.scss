@@ -24,6 +24,16 @@ body.active {
     }
 }
 
+.ss-tab-content {
+    display: none;
+    transition: .3s ease-in-out;
+    padding-top: 1rem;
+
+    &.active {
+        display: block;
+    }
+}
+
 .ss-mobile {
     @include media-breakpoint-up(lg) {
         display: none;

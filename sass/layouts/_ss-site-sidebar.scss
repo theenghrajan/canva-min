@@ -57,12 +57,12 @@ body.active {
         &-item {
             width: 100%;
 
-            &.active {
-                .ss-sidebar__nav-link {
-                    font-weight: 700;
-                    background-color: rgba($dark-blue-200, .07);
-                }
-            }
+            // &.active {
+            //     .ss-sidebar__nav-link {
+            //         font-weight: 700;
+            //         background-color: rgba($dark-blue-200, .07);
+            //     }
+            // }
 
             &.ss-sidebar__nav-item+.ss-sidebar__nav-item {
                 margin-top: 0.5rem;
@@ -78,14 +78,24 @@ body.active {
             border-radius: 4px;
             text-decoration: none;
             color: $body-color;
-            padding: 0.75rem;
+            padding: 8px 12px;
+            border: 0;
+            text-align: left;
             width: 100%;
             display: block;
+            outline: none;
+            background-color: transparent;
 
             &:hover,
             &:focus {
+                outline: none;
                 color: $body-color;
                 text-decoration: none;
+                background-color: rgba($dark-blue-200, .07)
+            }
+
+            &.active {
+                font-weight: 700;
                 background-color: rgba($dark-blue-200, .07)
             }
 
