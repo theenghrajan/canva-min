@@ -32,12 +32,16 @@ function openCloseDropdown(event) {
 
 // Continue another way
 const continueAnotherWay = document.getElementById('continueAnotherWay');
+const signUpemail = document.getElementById('signUpemail');
 const ssModalContentFirst = document.getElementById('ssModalContentFirst');
 const ssModalContentSecond = document.getElementById('ssModalContentSecond');
+const ssModalContentThird = document.getElementById('ssModalContentThird');
 const ssBackModalContent = document.getElementById('ssBackModalContent');
+const ssBackModalContent2 = document.getElementById('ssBackModalContent2');
 
-if (ssModalContentFirst || ssModalContentSecond) {
+if (ssModalContentFirst || ssModalContentSecond || ssModalContentThird) {
 	ssModalContentSecond.style.display = 'none';
+	ssModalContentThird.style.display = 'none';
 
 	continueAnotherWay.addEventListener('click', function () {
 		ssModalContentFirst.style.display = 'none';
@@ -47,6 +51,18 @@ if (ssModalContentFirst || ssModalContentSecond) {
 	ssBackModalContent.addEventListener('click', function () {
 		ssModalContentFirst.style.display = 'block';
 		ssModalContentSecond.style.display = 'none';
+	});
+
+	signUpemail.addEventListener('click', function () {
+		ssModalContentFirst.style.display = 'none';
+		ssModalContentSecond.style.display = 'none';
+		ssModalContentThird.style.display = 'block';
+	});
+
+	ssBackModalContent2.addEventListener('click', function () {
+		ssModalContentFirst.style.display = 'block';
+		ssModalContentSecond.style.display = 'none';
+		ssModalContentThird.style.display = 'none';
 	});
 }
 

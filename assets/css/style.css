@@ -7505,7 +7505,7 @@ fieldset:disabled a.btn {
 
 .btn-sm {
   padding: 0.25rem 0.5rem;
-  font-size: 0.76562rem;
+  font-size: 0.76563rem;
   line-height: 1.5;
   border-radius: 0.2rem;
 }
@@ -7634,7 +7634,6 @@ input[type="button"].btn-block {
 
 .ss-modal__container {
   max-width: 384px;
-  height: 592px;
   max-height: 90vh;
   position: relative;
   overflow-y: auto;
@@ -7722,41 +7721,61 @@ input[type="button"].btn-block {
   }
 }
 
-.ss-modal__content-block h2 {
+.ss-modal__content-block .ss-inner .ss-form {
+  margin-bottom: 1rem;
+}
+
+.ss-modal__content-block .ss-inner .ss-form__header, .ss-modal__content-block .ss-inner .ss-form__section {
+  border: 0;
+}
+
+.ss-modal__content-block .ss-inner .ss-form__section {
+  padding-bottom: 0;
+}
+
+.ss-modal__content-block .ss-inner .ss-form__section .ss-form__control {
+  display: block;
+}
+
+.ss-modal__content-block .ss-inner .ss-form__label {
+  padding: 0;
+}
+
+.ss-modal__content-block .ss-inner h2 {
   font-size: 1.5rem;
 }
 
 @media (max-width: 1200px) {
-  .ss-modal__content-block h2 {
+  .ss-modal__content-block .ss-inner h2 {
     font-size: calc(1.275rem + 0.3vw) ;
   }
 }
 
-.ss-modal__content-block .ss-btn-group__item {
+.ss-modal__content-block .ss-inner .ss-btn-group__item {
   margin-bottom: 1rem;
 }
 
-.ss-modal__content-block .ss-legal {
+.ss-modal__content-block .ss-inner .ss-legal {
   display: block;
   font-size: 0.75rem;
   margin-bottom: .5rem;
 }
 
-.ss-modal__content-block .ss-legal a {
+.ss-modal__content-block .ss-inner .ss-legal a {
   color: rgba(13, 18, 22, 0.86);
   text-decoration: underline;
 }
 
-.ss-modal__content-block .ss-legal a:hover, .ss-modal__content-block .ss-legal a:focus {
+.ss-modal__content-block .ss-inner .ss-legal a:hover, .ss-modal__content-block .ss-inner .ss-legal a:focus {
   color: #8b3dff;
 }
 
-.ss-modal__content-block .btn-link {
+.ss-modal__content-block .ss-inner .btn-link {
   padding-left: 0;
 }
 
-.ss-modal__content-block .btn-link [class^="icon-"],
-.ss-modal__content-block .btn-link [class*=" icon-"] {
+.ss-modal__content-block .ss-inner .btn-link [class^="icon-"],
+.ss-modal__content-block .ss-inner .btn-link [class*=" icon-"] {
   display: inline-block;
   vertical-align: middle;
   padding-right: 4px;
@@ -7764,20 +7783,26 @@ input[type="button"].btn-block {
   color: #000;
 }
 
-.ss-modal__img-block {
+.ss-modal__content-block__img-block {
   height: 100%;
+}
+
+@media (max-width: 991.98px) {
+  .ss-modal__content-block__img-block {
+    display: none;
+  }
+}
+
+.ss-modal__content-block__img-block img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 @media (max-width: 991.98px) {
   .ss-modal__img-block {
     display: none;
   }
-}
-
-.ss-modal__img-block img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 .ss-navbar {
